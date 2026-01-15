@@ -7,12 +7,18 @@ public:
 	Primitive();
 	virtual ~Primitive();
 
-	void Update() override;
+	virtual void Update() override;
 	virtual void Show() const override;
 
 	void Set_local_vec(VECTOR_D tr, VECTOR_D rt, VECTOR_D sc);
 
 	void Test_Original_Update();
+
+	virtual bool HitJudge(shared_ptr<GameObject> target) = 0;
+
+	VECTOR_D Get_drawPoint(int i) {
+		return drawPoint[i];
+	}
 
 protected:
 	void Update_drawPoint();

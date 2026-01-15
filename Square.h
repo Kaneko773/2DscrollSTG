@@ -8,6 +8,8 @@ public:
 	Square();
 	virtual ~Square() {};
 
+	virtual bool HitJudge(shared_ptr<GameObject> target) override;
+
 private:
 	const VECTOR_D vertexArray[4] = { {-0.5, -0.5}, {0.5, -0.5}, {0.5, 0.5}, {-0.5, 0.5} };//’¸“_
 };

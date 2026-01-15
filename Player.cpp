@@ -10,6 +10,11 @@ Player::~Player()
 
 }
 
+bool Player::HitJudge(shared_ptr<GameObject> target)
+{
+	return player->HitJudge(target);
+}
+
 void Player::Update()
 {
 	player->Update();

@@ -7,6 +7,8 @@ public:
 	PlayerDetail();
 	virtual ~PlayerDetail();
 
+	virtual bool HitJudge(shared_ptr<GameObject> target) override;
+
 	virtual void Update() override;
 	void Show() const override;
 

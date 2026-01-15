@@ -1,6 +1,10 @@
 #include "Primitive.h"
 #include "InputManager.h"
 
+#include "Circle.h"
+#include "Triangle.h"
+#include "Square.h"
+
 Primitive::Primitive()
 {
 	vertex = nullptr;

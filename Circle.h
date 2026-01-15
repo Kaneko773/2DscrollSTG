@@ -8,9 +8,18 @@ public:
 	Circle();
 	virtual ~Circle() {};
 
+	virtual bool HitJudge(shared_ptr<GameObject> target) override;
+
+	virtual void Update() override;
 	virtual void Show() const override;
+
+	double Get_draw_radius() {
+		return draw_radius;
+	}
 
 private:
 	double radius;
+
+	double draw_radius;//•`‰æ‚·‚é‰~‚Ì”¼Œai“–‚½‚è”»’è‚Å‚àg‚¤j
 };
 

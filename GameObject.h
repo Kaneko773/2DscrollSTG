@@ -20,12 +20,16 @@ public:
 
 	void Set_child(shared_ptr<GameObject> _parent, shared_ptr<GameObject> _child);
 
-	void Test_Set_tr_sc(VECTOR_D tr, VECTOR_D sc) {
+	void Test_Set_tr_sc(VECTOR_D tr, VECTOR_D sc) {//デバッグ
 		transform = tr;
 		scale = sc;
 	}
 
+	virtual bool HitJudge(shared_ptr<GameObject> target) = 0;
+
 	bool hit;
+
+
 
 protected://ここはprivateにした方が良いかも
 	shared_ptr<GameObject> parent = nullptr;//親

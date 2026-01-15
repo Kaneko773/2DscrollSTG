@@ -16,6 +16,19 @@ PlayerDetail::~PlayerDetail()
 
 }
 
+bool PlayerDetail::HitJudge(shared_ptr<GameObject> target)
+{
+	//©g‚Í”»’è–³‚µ
+
+	for (int i = 0; i < children.size(); ++i) {
+		if (children[i]->HitJudge(target)) {//‰½‚©‚P‚Â‚Å‚à“–‚½‚ê‚Îc‚è‚Í”»’è‚µ‚È‚¢
+			return true;
+		}
+	}
+
+	return false;
+}
+
 void PlayerDetail::Update()
 {
 #if 1

@@ -19,10 +19,21 @@ Stage1::Stage1()
 
 	shared_ptr<Player> player = make_shared<Player>();
 	gameObjects.push_back(player);
-
+#if 0
 	shared_ptr<Circle> circle = make_shared<Circle>();
 	gameObjects.push_back(circle);
 	circle->Test_Set_tr_sc({ 100, 100 }, { 50, 50 });
+#endif
+#if 0
+	shared_ptr<Triangle> triangle = make_shared<Triangle>();
+	gameObjects.push_back(triangle);
+	triangle->Test_Set_tr_sc({ 200, 200 }, { 50, 50 });
+#endif
+#if 0
+	shared_ptr<Square> square = make_shared<Square>();
+	gameObjects.push_back(square);
+	square->Test_Set_tr_sc({ 300, 300 }, { 50, 50 });
+#endif
 }
 
 Stage1::~Stage1()
@@ -38,9 +49,14 @@ NextScene* Stage1::Update()
 
 	//テスト
 	//当たり判定
-	//オブジェクトがprimitiveなら判定　違うなら無視
-	//当たり判定の関数に対象を渡して子オブジェクトがprimitiveなら判定　違うなら無視
-
+	for (int i = 0; i < gameObjects.size() - 1; ++i) {
+		if (gameObjects[i]->HitJudge(gameObjects[i + 1])) {
+			gameObjects[i]->hit = true;
+		}
+		else {
+			gameObjects[i]->hit = false;
+		}
+	}
 	
 
 	return this;
