@@ -69,7 +69,7 @@ void Primitive::Update_drawPoint()
 	}
 }
 
-void Primitive::Test_Original_Update()
+void Primitive::Test_Check_VEC_Update()
 {
 #if 1
 	if (InputManager::getInstance()->input_keyDown[KEY_INPUT_I]) {

@@ -1,18 +1,18 @@
 #pragma once
-#include "PlayerDetail.h"
+#include "EnemyDetail.h"
 
 //ラッパークラス
-class Player final : public GameObject
+class Enemy : public GameObject
 {
 public:
-	Player();
-	virtual ~Player() {};
+	Enemy();
+	virtual ~Enemy() {};
 
 	virtual bool HitJudge(shared_ptr<GameObject> target) override;
 
 	virtual void Update() override;
 	void Show() const override;
 
-private:
-	std::shared_ptr<PlayerDetail> player;
+protected:
+	std::shared_ptr<EnemyDetail> enemy;
 };

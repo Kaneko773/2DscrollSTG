@@ -1,6 +1,8 @@
-#include "PlayerDetail.h"
+#include "EnemyDetail.h"
 
-bool PlayerDetail::HitJudge(shared_ptr<GameObject> target)
+//#include "Primitive.h"
+
+bool EnemyDetail::HitJudge(shared_ptr<GameObject> target)
 {
 	//自身は判定無し
 
@@ -13,16 +15,22 @@ bool PlayerDetail::HitJudge(shared_ptr<GameObject> target)
 	return false;
 }
 
-void PlayerDetail::Update()
+void EnemyDetail::Update()
 {
 	Calculation_MATRIX();//子が使うので計算しておく
+
+	//デバッグ
+#if 0
+	shared_ptr<Primitive> temp = dynamic_pointer_cast<Primitive>(children[3]);
+	if (temp != nullptr)temp->Test_Check_VEC_Update();
+#endif
 
 	for (int i = 0; i < children.size(); ++i) {
 		children[i]->Update();
 	}
 }
 
-void PlayerDetail::Show() const
+void EnemyDetail::Show() const
 {
 	for (int i = 0; i < children.size(); ++i) {
 		children[i]->Show();

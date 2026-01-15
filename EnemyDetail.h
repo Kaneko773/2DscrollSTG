@@ -1,11 +1,11 @@
 #pragma once
 #include "GameObject.h"
 
-class PlayerDetail final : public GameObject
+class EnemyDetail final : public GameObject
 {
 public:
-	PlayerDetail() {};
-	virtual ~PlayerDetail() {};
+	EnemyDetail() {};
+	virtual ~EnemyDetail() {};
 
 	virtual bool HitJudge(shared_ptr<GameObject> target) override;
 

@@ -1,39 +1,23 @@
-#include "Player.h"
+#include "Test_smallEnemy.h"
 
 #include "Square.h"
 #include "Triangle.h"
 
-Player::Player() {
-	player = std::make_shared<PlayerDetail>();
-
+Test_smallEnemy::Test_smallEnemy()
+{
 	//}Œ`‚ğ‘g‚İ‡‚í‚¹‚Ä‘Ì‚ğì‚é
 	shared_ptr<Square> body = make_shared<Square>();
-	player->Set_child(player, body);
+	enemy->Set_child(enemy, body);
 	shared_ptr<Triangle> head = make_shared<Triangle>();
-	player->Set_child(player, head);
+	enemy->Set_child(enemy, head);
 	head->Set_local_vec({ 0, -0.79 }, { 0, 0, 0 }, { 1, 1 });
 	shared_ptr<Triangle> wing1 = make_shared<Triangle>();
-	player->Set_child(player, wing1);
+	enemy->Set_child(enemy, wing1);
 	wing1->Set_local_vec({ -0.79, 0.5 }, { 0, 0, 30 }, { 1, 1 });
 	shared_ptr<Triangle> wing2 = make_shared<Triangle>();
-	player->Set_child(player, wing2);
+	enemy->Set_child(enemy, wing2);
 	wing2->Set_local_vec({ 0.79, 0.5 }, { 0, 0, -30 }, { 1, 1 });
 
 	//ˆê“I
-	player->Test_Set_tr_rt_sc({ 0, 0 }, { 0, 0, 90 }, { 50, 50 });
-}
-
-bool Player::HitJudge(shared_ptr<GameObject> target)
-{
-	return player->HitJudge(target);
-}
-
-void Player::Update()
-{
-	player->Update();
-}
-
-void Player::Show() const
-{
-	player->Show();
+	enemy->Test_Set_tr_rt_sc({ 0, 0 }, { 0, 0, 90 }, { 50, 50 });
 }

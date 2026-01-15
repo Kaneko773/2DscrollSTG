@@ -1,10 +1,12 @@
 #include "Stage1.h"
 #include "DxLib.h"
 #include "InputManager.h"
-#include "Player.h"
 
-#include "Circle.h"
+#include "Player.h"
+#include "Test_smallEnemy.h"
+
 //‘JˆÚæ
+
 
 Stage1::Stage1()
 {
@@ -17,23 +19,10 @@ Stage1::Stage1()
 	InputManager::getInstance()->Set_input_keyFewSec_time(KEY_INPUT_UP, 0.01f);
 	InputManager::getInstance()->Set_input_keyFewSec_time(KEY_INPUT_DOWN, 0.01f);
 
-	shared_ptr<Player> player = make_shared<Player>();
-	gameObjects.push_back(player);
-#if 0
-	shared_ptr<Circle> circle = make_shared<Circle>();
-	gameObjects.push_back(circle);
-	circle->Test_Set_tr_sc({ 100, 100 }, { 50, 50 });
-#endif
-#if 0
-	shared_ptr<Triangle> triangle = make_shared<Triangle>();
-	gameObjects.push_back(triangle);
-	triangle->Test_Set_tr_sc({ 200, 200 }, { 50, 50 });
-#endif
-#if 0
-	shared_ptr<Square> square = make_shared<Square>();
-	gameObjects.push_back(square);
-	square->Test_Set_tr_sc({ 300, 300 }, { 50, 50 });
-#endif
+	//shared_ptr<Player> player = make_shared<Player>();
+	//gameObjects.push_back(player);
+	shared_ptr<Test_smallEnemy> enemy = make_shared<Test_smallEnemy>();
+	gameObjects.push_back(enemy);
 }
 
 Stage1::~Stage1()

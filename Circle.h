@@ -13,7 +13,7 @@ public:
 	virtual void Update() override;
 	virtual void Show() const override;
 
-	double Get_draw_radius() {
+	double Get_draw_radius() const {
 		return draw_radius;
 	}
 
