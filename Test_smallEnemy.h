@@ -1,10 +1,15 @@
 #pragma once
 #include "Enemy.h"
 
-class Test_smallEnemy : public Enemy
+class Test_smallEnemy final : public Enemy
 {
 public:
 	Test_smallEnemy();
 	virtual ~Test_smallEnemy() {};
+
+	bool HitJudge(shared_ptr<GameObject> target) override;
+
+	void Update() override;
+	void Show() const override;
 };
 

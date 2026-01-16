@@ -19,18 +19,24 @@ Circle::Circle()
 
 bool Circle::HitJudge(shared_ptr<GameObject> target)
 {
-	shared_ptr<Circle> c = dynamic_pointer_cast<Circle>(target);
-	if (c != nullptr) {
-		if (HitCheck_Sphere_SphereD(drawPoint[0], draw_radius, c->Get_drawPoint(0), c->Get_draw_radius())) return true;
-	}
-	shared_ptr<Triangle> t = dynamic_pointer_cast<Triangle>(target);
-	if (t != nullptr) {
-		if (HitCheck_Sphere_TriangleD(drawPoint[0], draw_radius, t->Get_drawPoint(0), t->Get_drawPoint(1), t->Get_drawPoint(2))) return true;
-	}
-	shared_ptr<Square> s = dynamic_pointer_cast<Square>(target);
-	if (s != nullptr) {
-		if (HitCheck_Sphere_TriangleD(drawPoint[0], draw_radius, s->Get_drawPoint(0), s->Get_drawPoint(1), s->Get_drawPoint(2))) return true;
-		if (HitCheck_Sphere_TriangleD(drawPoint[0], draw_radius, s->Get_drawPoint(0), s->Get_drawPoint(3), s->Get_drawPoint(2))) return true;
+	vector<shared_ptr<GameObject>> targets;
+	targets.push_back(target);
+	target->Summarize(&targets);
+
+	for (int i = 0; i < targets.size(); ++i) {
+		shared_ptr<Circle> c = dynamic_pointer_cast<Circle>(targets[i]);
+		if (c != nullptr) {
+			if (HitCheck_Sphere_SphereD(drawPoint[0], draw_radius, c->Get_drawPoint(0), c->Get_draw_radius())) return true;
+		}
+		shared_ptr<Triangle> t = dynamic_pointer_cast<Triangle>(targets[i]);
+		if (t != nullptr) {
+			if (HitCheck_Sphere_TriangleD(drawPoint[0], draw_radius, t->Get_drawPoint(0), t->Get_drawPoint(1), t->Get_drawPoint(2))) return true;
+		}
+		shared_ptr<Square> s = dynamic_pointer_cast<Square>(targets[i]);
+		if (s != nullptr) {
+			if (HitCheck_Sphere_TriangleD(drawPoint[0], draw_radius, s->Get_drawPoint(0), s->Get_drawPoint(1), s->Get_drawPoint(2))) return true;
+			if (HitCheck_Sphere_TriangleD(drawPoint[0], draw_radius, s->Get_drawPoint(0), s->Get_drawPoint(3), s->Get_drawPoint(2))) return true;
+		}
 	}
 
 	for (int i = 0; i < children.size(); ++i) {

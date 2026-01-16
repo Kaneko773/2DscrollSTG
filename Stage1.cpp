@@ -5,24 +5,17 @@
 #include "Player.h"
 #include "Test_smallEnemy.h"
 
+#include "Circle.h"
+
 //‘JˆÚæ
 
 
 Stage1::Stage1()
 {
-	InputManager::getInstance()->Set_input_keyFewSec_time(KEY_INPUT_W, 0.01f);
-	InputManager::getInstance()->Set_input_keyFewSec_time(KEY_INPUT_A, 0.01f);
-	InputManager::getInstance()->Set_input_keyFewSec_time(KEY_INPUT_S, 0.01f);
-	InputManager::getInstance()->Set_input_keyFewSec_time(KEY_INPUT_D, 0.01f);
-	InputManager::getInstance()->Set_input_keyFewSec_time(KEY_INPUT_RIGHT, 0.01f);
-	InputManager::getInstance()->Set_input_keyFewSec_time(KEY_INPUT_LEFT, 0.01f);
-	InputManager::getInstance()->Set_input_keyFewSec_time(KEY_INPUT_UP, 0.01f);
-	InputManager::getInstance()->Set_input_keyFewSec_time(KEY_INPUT_DOWN, 0.01f);
-
-	//shared_ptr<Player> player = make_shared<Player>();
-	//gameObjects.push_back(player);
-	shared_ptr<Test_smallEnemy> enemy = make_shared<Test_smallEnemy>();
-	gameObjects.push_back(enemy);
+	shared_ptr<Player> player = make_shared<Player>();
+	gameObjects.push_back(player);
+	//shared_ptr<Test_smallEnemy> enemy = make_shared<Test_smallEnemy>();
+	//gameObjects.push_back(enemy);
 }
 
 Stage1::~Stage1()

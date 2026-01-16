@@ -26,21 +26,31 @@ public:
 		scale = sc;
 	}
 
+	void MoveX(double num) {
+		transform.x += num;
+	}
+	void MoveY(double num) {
+		transform.y += num;
+	}
+
 	virtual bool HitJudge(shared_ptr<GameObject> target) = 0;
 
-	bool hit;
+	bool hit;//
+
+	virtual void Summarize(vector<shared_ptr<GameObject>>* targets) {
+		for (int i = 0; i < children.size(); ++i) {
+			targets->push_back(children[i]);
+			children[i]->Summarize(targets);
+		}
+	}
 
 
-
-protected://ここはprivateにした方が良いかも
+protected:
 	shared_ptr<GameObject> parent = nullptr;//親
 	vector<shared_ptr<GameObject>> children;//子達
 
 	void WorldMatrixD(MATRIX_D& calc);//自分と親たちの行列をかける
 	MATRIX_D Calculation_MATRIX();
-
-	//primitiveで使用
-	MATRIX_D Calculation_MATRIX_Local();
 
 	VECTOR_D transform;
 	VECTOR_D rotation;
@@ -50,6 +60,8 @@ protected://ここはprivateにした方が良いかも
 	MATRIX_D scMat;//拡縮
 
 	//primitiveで使用
+	MATRIX_D Calculation_MATRIX_Local();
+
 	VECTOR_D local_transform;
 	VECTOR_D local_rotation;
 	VECTOR_D local_scale;

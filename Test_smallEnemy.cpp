@@ -3,8 +3,12 @@
 #include "Square.h"
 #include "Triangle.h"
 
+#include "InputManager.h"
+
 Test_smallEnemy::Test_smallEnemy()
 {
+	enemy = std::make_shared<EnemyDetail>();
+
 	//}Œ`‚ğ‘g‚İ‡‚í‚¹‚Ä‘Ì‚ğì‚é
 	shared_ptr<Square> body = make_shared<Square>();
 	enemy->Set_child(enemy, body);
@@ -20,4 +24,32 @@ Test_smallEnemy::Test_smallEnemy()
 
 	//ˆê“I
 	enemy->Test_Set_tr_rt_sc({ 0, 0 }, { 0, 0, 90 }, { 50, 50 });
+}
+
+bool Test_smallEnemy::HitJudge(shared_ptr<GameObject> target)
+{
+	return enemy->HitJudge(target);
+}
+
+void Test_smallEnemy::Update()
+{
+	if (InputManager::getInstance()->input_keyFewSec[KEY_INPUT_UP]) {
+		enemy->MoveY(-1);
+	}
+	if (InputManager::getInstance()->input_keyFewSec[KEY_INPUT_LEFT]) {
+		enemy->MoveX(-1);
+	}
+	if (InputManager::getInstance()->input_keyFewSec[KEY_INPUT_DOWN]) {
+		enemy->MoveY(1);
+	}
+	if (InputManager::getInstance()->input_keyFewSec[KEY_INPUT_RIGHT]) {
+		enemy->MoveX(1);
+	}
+
+	enemy->Update();
+}
+
+void Test_smallEnemy::Show() const
+{
+	enemy->Show();
 }
