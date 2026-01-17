@@ -15,7 +15,7 @@ bool EnemyDetail::HitJudge(shared_ptr<GameObject> target)
 	return false;
 }
 
-void EnemyDetail::Update()
+void EnemyDetail::Update(vector<shared_ptr<GameObject>>* gameObjects)
 {
 	Calculation_MATRIX();//Žq‚ªŽg‚¤‚Ì‚ÅŒvŽZ‚µ‚Ä‚¨‚­
 
@@ -26,7 +26,7 @@ void EnemyDetail::Update()
 #endif
 
 	for (int i = 0; i < children.size(); ++i) {
-		children[i]->Update();
+		children[i]->Update(gameObjects);
 	}
 }
 

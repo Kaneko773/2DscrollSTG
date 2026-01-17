@@ -13,12 +13,15 @@ bool PlayerDetail::HitJudge(shared_ptr<GameObject> target)
 	return false;
 }
 
-void PlayerDetail::Update()
+void PlayerDetail::Update(vector<shared_ptr<GameObject>>* gameObjects)
 {
+	upperLimit = lowerLimit = transform.y;//
+	rightEnd = leftEnd = transform.x;//
+
 	Calculation_MATRIX();//Žq‚ªŽg‚¤‚Ì‚ÅŒvŽZ‚µ‚Ä‚¨‚­
 
 	for (int i = 0; i < children.size(); ++i) {
-		children[i]->Update();
+		children[i]->Update(gameObjects);
 	}
 }
 

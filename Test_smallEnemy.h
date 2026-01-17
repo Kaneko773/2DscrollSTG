@@ -9,7 +9,7 @@ public:
 
 	bool HitJudge(shared_ptr<GameObject> target) override;
 
-	void Update() override;
+	void Update(vector<shared_ptr<GameObject>>* gameObjects) override;
 	void Show() const override;
 };
 

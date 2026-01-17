@@ -7,7 +7,7 @@ public:
 	Primitive();
 	virtual ~Primitive();
 
-	virtual void Update() override;
+	virtual void Update(vector<shared_ptr<GameObject>>* gameObjects) override;
 	virtual void Show() const override;
 
 	void Set_local_vec(VECTOR_D tr, VECTOR_D rt, VECTOR_D sc);//

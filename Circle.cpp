@@ -48,14 +48,14 @@ bool Circle::HitJudge(shared_ptr<GameObject> target)
 	return false;
 }
 
-void Circle::Update()
+void Circle::Update(vector<shared_ptr<GameObject>>* gameObjects)
 {
 	Update_drawPoint();
 
 	draw_radius = sqrt(pow(drawPoint[0].x - drawPoint[1].x, 2) + pow(drawPoint[0].y - drawPoint[1].y, 2));
 
 	for (int i = 0; i < children.size(); ++i) {
-		children[i]->Update();
+		children[i]->Update(gameObjects);
 	}
 }
 

@@ -13,7 +13,10 @@ GameObject::GameObject()
 	local_scale = { 1, 1 };
 	local_trMat = local_rtMat = local_scMat = MGetIdentD();
 
-	hit = false;//
+	manager = "";
+	hp = 0;
+
+	upperLimit = lowerLimit = rightEnd = leftEnd = 0;
 }
 
 void GameObject::Set_child(shared_ptr<GameObject> _parent, shared_ptr<GameObject> _child)

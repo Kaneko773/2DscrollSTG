@@ -12,9 +12,13 @@ public:
 
 	void Summarize(vector<shared_ptr<GameObject>>* targets) override;
 
-	void Update() override;
+	void Update(vector<shared_ptr<GameObject>>* gameObjects) override;
 	void Show() const override;
 
+	shared_ptr<PlayerDetail> Get_player() const{
+		return player;
+	}
+
 private:
-	std::shared_ptr<PlayerDetail> player;
+	shared_ptr<PlayerDetail> player;
 };

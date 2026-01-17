@@ -12,7 +12,7 @@ public:
 
 	void Summarize(vector<shared_ptr<GameObject>>* targets) override;
 
-	virtual void Update() = 0;
+	virtual void Update(vector<shared_ptr<GameObject>>* gameObjects) = 0;
 	virtual void Show() const = 0;
 
 protected:

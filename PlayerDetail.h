@@ -9,6 +9,6 @@ public:
 
 	virtual bool HitJudge(shared_ptr<GameObject> target) override;
 
-	virtual void Update() override;
+	virtual void Update(vector<shared_ptr<GameObject>>* gameObjects) override;
 	void Show() const override;
 };

@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <memory>//shared_ptr
+#include <string>
 
 using namespace std;
 
@@ -15,7 +16,7 @@ public:
 	GameObject();
 	~GameObject() {};
 
-	virtual void Update() = 0;
+	virtual void Update(vector<shared_ptr<GameObject>>* gameObjects) = 0;
 	virtual void Show() const = 0;
 
 	void Set_child(shared_ptr<GameObject> _parent, shared_ptr<GameObject> _child);
@@ -33,9 +34,11 @@ public:
 		transform.y += num;
 	}
 
-	virtual bool HitJudge(shared_ptr<GameObject> target) = 0;
+	VECTOR_D Get_Transform() const {
+		return transform;
+	}
 
-	bool hit;//
+	virtual bool HitJudge(shared_ptr<GameObject> target) = 0;
 
 	virtual void Summarize(vector<shared_ptr<GameObject>>* targets) {
 		for (int i = 0; i < children.size(); ++i) {
@@ -44,6 +47,66 @@ public:
 		}
 	}
 
+public:
+	string Get_manager() {
+		return manager;
+	}
+	void Set_manager(string _manager) {
+		manager = _manager;
+	}
+	void Get_Damage() {
+		hp -= 1;
+	}
+	int Get_Hp() const {
+		return hp;
+	}
+
+protected:
+	string manager;
+	int hp;
+
+
+public:
+	double Get_upperLimit() const {
+		return upperLimit;
+	}
+	double Get_lowerLimit() const {
+		return lowerLimit;
+	}
+	//Ç∏ÇÁÇ∑ï™ìnÇ∑
+	void Shift_transform_y(double shift) {
+		transform.y += shift;
+	}
+	double Get_rightEnd() const {
+		return rightEnd;
+	}
+	double Get_leftEnd() const {
+		return leftEnd;
+	}
+
+protected:
+	void Set_Upper_Lower_Limits(double tr_y) {
+		if (parent != nullptr) {
+			parent->Set_Upper_Lower_Limits(tr_y);
+		}
+		else {
+			if (tr_y < upperLimit) upperLimit = tr_y;
+			if (tr_y > lowerLimit) lowerLimit = tr_y;
+		}
+	}
+	void Set_Right_Left_Ends(double tr_x) {
+		if (parent != nullptr) {
+			parent->Set_Right_Left_Ends(tr_x);
+		}
+		else {
+			if (tr_x < leftEnd) leftEnd = tr_x;
+			if (tr_x > rightEnd) rightEnd = tr_x;
+		}
+	}
+	double upperLimit;
+	double lowerLimit;
+	double rightEnd;
+	double leftEnd;
 
 protected:
 	shared_ptr<GameObject> parent = nullptr;//êe

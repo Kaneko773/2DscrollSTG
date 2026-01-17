@@ -10,7 +10,7 @@ public:
 
 	virtual bool HitJudge(shared_ptr<GameObject> target) override;
 
-	virtual void Update() override;
+	virtual void Update(vector<shared_ptr<GameObject>>* gameObjects) override;
 	virtual void Show() const override;
 
 	double Get_draw_radius() const {

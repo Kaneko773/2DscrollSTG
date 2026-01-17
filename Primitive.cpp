@@ -37,12 +37,12 @@ Primitive::~Primitive()
 	}
 }
 
-void Primitive::Update()
+void Primitive::Update(vector<shared_ptr<GameObject>>* gameObjects)
 {
 	Update_drawPoint();
 
 	for (int i = 0; i < children.size(); ++i) {
-		children[i]->Update();
+		children[i]->Update(gameObjects);
 	}
 }
 
@@ -66,6 +66,8 @@ void Primitive::Update_drawPoint()
 
 	for (int i = 0; i < drawPoint_size; ++i) {
 		drawPoint[i] = VTransformD(drawPoint[i], Calculation_MATRIX());
+		Set_Upper_Lower_Limits(drawPoint[i].y);//
+		Set_Right_Left_Ends(drawPoint[i].x);
 	}
 }
 
