@@ -25,6 +25,8 @@ public:
 	virtual void AAA() override;////誰のトランジションか確認用
 
 private:
-
 	vector<shared_ptr<GameObject>> gameObjects;//子
+
+	int handle_BackGround;
+	double backGround_DrawPos_x;
 };

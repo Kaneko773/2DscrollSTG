@@ -19,6 +19,23 @@ public:
 		return player;
 	}
 
+	bool Get_Invincible() const {
+		return invincible;
+	}
+
+	void Get_Damage() override{
+		hp -= 1;
+		hit = true;
+		invincible = true;
+		invincibleTimer = 0;
+		prevBlinkingTime = invincibleTimer;
+	}
+
 private:
 	shared_ptr<PlayerDetail> player;
+	const double InvincibleTime = 1;
+	double invincibleTimer;
+	bool invincible;
+	double prevBlinkingTime;
+	bool hide;
 };

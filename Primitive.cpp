@@ -115,16 +115,18 @@ void Primitive::Show() const
 	for (int i = 0; i < drawPoint_size; ++i) {
 		int s = i;
 		int e = (s < (drawPoint_size - 1) ? s + 1 : 0);
-		DrawLine((int)drawPoint[s].x, (int)drawPoint[s].y, (int)drawPoint[e].x, (int)drawPoint[e].y, GetColor(0, 0, 255));
+		DrawLine((int)drawPoint[s].x, (int)drawPoint[s].y, (int)drawPoint[e].x, (int)drawPoint[e].y, Get_Color());
 	}
 
 	//“h‚è‚Â‚Ô‚µ ˆê’U
-	if (drawPoint_size == 3) {
-		DrawTriangle((int)drawPoint[0].x, (int)drawPoint[0].y, (int)drawPoint[1].x, (int)drawPoint[1].y, (int)drawPoint[2].x, (int)drawPoint[2].y, GetColor(0, 0, 255), TRUE);
-	}
-	else if (drawPoint_size == 4) {
-		DrawTriangle((int)drawPoint[0].x, (int)drawPoint[0].y, (int)drawPoint[1].x, (int)drawPoint[1].y, (int)drawPoint[2].x, (int)drawPoint[2].y, GetColor(0, 0, 255), TRUE);
-		DrawTriangle((int)drawPoint[0].x, (int)drawPoint[0].y, (int)drawPoint[3].x, (int)drawPoint[3].y, (int)drawPoint[2].x, (int)drawPoint[2].y, GetColor(0, 0, 255), TRUE);
+	if (Get_FillFlag()) {
+		if (drawPoint_size == 3) {
+			DrawTriangle((int)drawPoint[0].x, (int)drawPoint[0].y, (int)drawPoint[1].x, (int)drawPoint[1].y, (int)drawPoint[2].x, (int)drawPoint[2].y, Get_Color(), TRUE);
+		}
+		else if (drawPoint_size == 4) {
+			DrawTriangle((int)drawPoint[0].x, (int)drawPoint[0].y, (int)drawPoint[1].x, (int)drawPoint[1].y, (int)drawPoint[2].x, (int)drawPoint[2].y, Get_Color(), TRUE);
+			DrawTriangle((int)drawPoint[0].x, (int)drawPoint[0].y, (int)drawPoint[3].x, (int)drawPoint[3].y, (int)drawPoint[2].x, (int)drawPoint[2].y, Get_Color(), TRUE);
+		}
 	}
 
 	//Žq‹Ÿ

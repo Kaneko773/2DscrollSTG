@@ -1,6 +1,12 @@
 #pragma once
 #include "Enemy.h"
 
+enum Action {
+	entry,
+	stop,
+	rush,
+};
+
 class Test_smallEnemy final : public Enemy
 {
 public:
@@ -11,5 +17,9 @@ public:
 
 	void Update(vector<shared_ptr<GameObject>>* gameObjects) override;
 	void Show() const override;
+
+private:
+	Action actionState;
+	double actionTimer;
 };
 

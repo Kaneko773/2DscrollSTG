@@ -1,6 +1,6 @@
 #include "EnemyDetail.h"
 
-//#include "Primitive.h"
+#include "Primitive.h"
 
 bool EnemyDetail::HitJudge(shared_ptr<GameObject> target)
 {
@@ -17,11 +17,14 @@ bool EnemyDetail::HitJudge(shared_ptr<GameObject> target)
 
 void EnemyDetail::Update(vector<shared_ptr<GameObject>>* gameObjects)
 {
+	upperLimit = lowerLimit = transform.y;//
+	rightEnd = leftEnd = transform.x;//
+
 	Calculation_MATRIX();//子が使うので計算しておく
 
 	//デバッグ
 #if 0
-	shared_ptr<Primitive> temp = dynamic_pointer_cast<Primitive>(children[3]);
+	shared_ptr<Primitive> temp = dynamic_pointer_cast<Primitive>(children[0]);
 	if (temp != nullptr)temp->Test_Check_VEC_Update();
 #endif
 

@@ -13,6 +13,10 @@
 Player::Player() {
 	player = std::make_shared<PlayerDetail>();
 	manager = "Player";
+	player->Set_Color(GetColor(0, 0, 255));
+	player->Set_FillFlag(true);
+
+	hp = 5;
 
 	//図形を組み合わせて体を作る
 	shared_ptr<Square> body = make_shared<Square>();
@@ -28,7 +32,12 @@ Player::Player() {
 	wing2->Set_local_vec({ 0.79, 0.5 }, { 0, 0, -30 }, { 1, 1 });
 
 	//一時的
-	player->Test_Set_tr_rt_sc({ 100, 240 }, { 0, 0, 90 }, { 20, 30 });
+	player->Test_Set_tr_rt_sc({ 100, SCREEN_HEIGHT / 2 }, { 0, 0, 90 }, { 20, 30 });
+
+	invincibleTimer = 0;
+	invincible = false;
+	prevBlinkingTime = invincibleTimer;
+	hide = false;
 }
 
 bool Player::HitJudge(shared_ptr<GameObject> target)
@@ -46,14 +55,8 @@ void Player::Update(vector<shared_ptr<GameObject>>* gameObjects)
 	if (InputManager::getInstance()->input_key[KEY_INPUT_W]) {
 		player->MoveY(-1 * FrameRateManager::getInstance()->Get_Deltatime() * 100);
 	}
-	if (InputManager::getInstance()->input_key[KEY_INPUT_A]) {
-		player->MoveX(-1 * FrameRateManager::getInstance()->Get_Deltatime() * 100);
-	}
 	if (InputManager::getInstance()->input_key[KEY_INPUT_S]) {
 		player->MoveY(FrameRateManager::getInstance()->Get_Deltatime() * 100);
-	}
-	if (InputManager::getInstance()->input_key[KEY_INPUT_D]) {
-		player->MoveX(FrameRateManager::getInstance()->Get_Deltatime() * 100);
 	}
 
 	player->Update(gameObjects);
@@ -76,9 +79,24 @@ void Player::Update(vector<shared_ptr<GameObject>>* gameObjects)
 		player->Shift_transform_y(SCREEN_HEIGHT - player->Get_lowerLimit());
 	}
 	player->Update(gameObjects);//DrawPointだけで良いかも
+
+	//無敵時間更新
+	if (invincible) {
+		invincibleTimer += FrameRateManager::getInstance()->Get_Deltatime();
+		//点滅
+		if (invincibleTimer >= prevBlinkingTime + 0.05) {
+			hide = !hide;
+			prevBlinkingTime = invincibleTimer;
+		}
+		if (invincibleTimer >= InvincibleTime) {
+			invincible = false;
+			hide = false;
+		}
+	}
 }
 
 void Player::Show() const
 {
+	if (hide)return;//無敵時間中(点滅)
 	player->Show();
 }

@@ -54,16 +54,27 @@ public:
 	void Set_manager(string _manager) {
 		manager = _manager;
 	}
-	void Get_Damage() {
+	virtual void Get_Damage() {
 		hp -= 1;
+		hit = true;
 	}
 	int Get_Hp() const {
 		return hp;
+	}
+	void Set_hp(int _hp) {
+		hp = _hp;
+	}
+	void Reset_Hit() {
+		hit = false;
+	}
+	bool Get_Hit() const {
+		return hit;
 	}
 
 protected:
 	string manager;
 	int hp;
+	bool hit;
 
 
 public:
@@ -108,6 +119,32 @@ protected:
 	double rightEnd;
 	double leftEnd;
 
+
+public:
+	void Set_Color(unsigned int _color) {
+		color = _color;
+	}
+	unsigned int Get_Color() const {
+		if (parent != nullptr) {
+			return parent->Get_Color();
+		}
+		return color;
+	}
+	void Set_FillFlag(bool flag) {
+		fillFlag = flag;
+	}
+	bool Get_FillFlag() const {
+		if (parent != nullptr) {
+			return parent->Get_FillFlag();
+		}
+		return fillFlag;
+	}
+
+protected:
+	unsigned int color;
+	bool fillFlag;
+
+	
 protected:
 	shared_ptr<GameObject> parent = nullptr;//êe
 	vector<shared_ptr<GameObject>> children;//éqíB

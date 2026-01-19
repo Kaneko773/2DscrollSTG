@@ -17,6 +17,9 @@ GameObject::GameObject()
 	hp = 0;
 
 	upperLimit = lowerLimit = rightEnd = leftEnd = 0;
+
+	color = GetColor(255, 255, 255);
+	fillFlag = false;
 }
 
 void GameObject::Set_child(shared_ptr<GameObject> _parent, shared_ptr<GameObject> _child)

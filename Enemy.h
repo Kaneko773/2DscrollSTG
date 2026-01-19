@@ -15,6 +15,11 @@ public:
 	virtual void Update(vector<shared_ptr<GameObject>>* gameObjects) = 0;
 	virtual void Show() const = 0;
 
+	void Get_Damage() override {
+		hp -= 1;
+		hit = true;
+	}
+
 protected:
 	std::shared_ptr<EnemyDetail> enemy;
 };

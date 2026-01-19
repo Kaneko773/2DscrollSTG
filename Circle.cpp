@@ -62,7 +62,7 @@ void Circle::Update(vector<shared_ptr<GameObject>>* gameObjects)
 void Circle::Show() const
 {
 	//Ž©g
-	DrawCircle((int)drawPoint->x, (int)drawPoint->y, (int)draw_radius, GetColor(255, 255, 255), TRUE);
+	DrawCircle((int)drawPoint->x, (int)drawPoint->y, (int)draw_radius, Get_Color(), Get_FillFlag());
 	//Žq‹Ÿ
 	for (int i = 0; i < children.size(); ++i) {
 		children[i]->Show();
