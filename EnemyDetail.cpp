@@ -22,7 +22,7 @@ void EnemyDetail::Update(vector<shared_ptr<GameObject>>* gameObjects)
 
 	Calculation_MATRIX();//子が使うので計算しておく
 
-	//デバッグ
+	//デバッグ用　体のパーツを動かすため
 #if 0
 	shared_ptr<Primitive> temp = dynamic_pointer_cast<Primitive>(children[0]);
 	if (temp != nullptr)temp->Test_Check_VEC_Update();

@@ -1,10 +1,6 @@
 #include "Primitive.h"
 #include "InputManager.h"
 
-#include "Circle.h"
-#include "Triangle.h"
-#include "Square.h"
-
 Primitive::Primitive()
 {
 	vertex = nullptr;
@@ -66,7 +62,7 @@ void Primitive::Update_drawPoint()
 
 	for (int i = 0; i < drawPoint_size; ++i) {
 		drawPoint[i] = VTransformD(drawPoint[i], Calculation_MATRIX());
-		Set_Upper_Lower_Limits(drawPoint[i].y);//
+		Set_Upper_Lower_Limits(drawPoint[i].y);
 		Set_Right_Left_Ends(drawPoint[i].x);
 	}
 }

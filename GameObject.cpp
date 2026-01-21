@@ -40,11 +40,6 @@ void GameObject::WorldMatrixD(MATRIX_D& calc)
 	if (parent != nullptr) {
 		parent->WorldMatrixD(calc);
 	}
-	else {
-		//Œ´“_
-		//VECTOR_D screenOrigin = { 320, 240 };
-		//calc = MMultD(calc, MGetTranslateD(screenOrigin));
-	}
 }
 
 MATRIX_D GameObject::Calculation_MATRIX()

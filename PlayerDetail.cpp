@@ -15,8 +15,8 @@ bool PlayerDetail::HitJudge(shared_ptr<GameObject> target)
 
 void PlayerDetail::Update(vector<shared_ptr<GameObject>>* gameObjects)
 {
-	upperLimit = lowerLimit = transform.y;//
-	rightEnd = leftEnd = transform.x;//
+	upperLimit = lowerLimit = transform.y;
+	rightEnd = leftEnd = transform.x;
 
 	Calculation_MATRIX();//Žq‚ªŽg‚¤‚Ì‚ÅŒvŽZ‚µ‚Ä‚¨‚­
 

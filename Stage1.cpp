@@ -160,8 +160,6 @@ void Stage1::Draw()
 		}
 	}
 
-	DrawString(250, 240 - 32, "Stage1", GetColor(255, 255, 255));
-
 	for (int i = 0; i < gameObjects.size(); ++i) {
 		gameObjects[i]->Show();
 	}

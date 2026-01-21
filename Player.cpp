@@ -81,7 +81,7 @@ void Player::Update(vector<shared_ptr<GameObject>>* gameObjects)
 	if (player->Get_lowerLimit() > SCREEN_HEIGHT) {
 		player->Shift_transform_y(SCREEN_HEIGHT - player->Get_lowerLimit());
 	}
-	player->Update(gameObjects);//DrawPointだけで良いかも
+	player->Update(gameObjects);//DrawPointだけで良いかも　要改善
 
 	//無敵時間更新
 	if (invincible) {
