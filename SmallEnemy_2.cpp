@@ -28,13 +28,15 @@ SmallEnemy_2::SmallEnemy_2()
 	enemy->Set_child(enemy, body2);
 	body2->Set_local_vec({ -0.3, 0 }, { 0, 0, -90 }, { 1, 1 });
 
-	posY = 240;
+	posY = 480.0f / 6.0f;
+	posY *= (GetRand(4) + 1);
+
 	temp = 0;
 	stop = false;
 	ActionTime = 1.0 / 180;
 
 	//ˆêŽž“I
-	enemy->Test_Set_tr_rt_sc({ 500, posY }, { 0, 0, 0 }, { 20, 20 });
+	enemy->Test_Set_tr_rt_sc({ 700, posY }, { 0, 0, 0 }, { 20, 20 });
 
 	actionTimer = 0;
 }
@@ -46,15 +48,15 @@ bool SmallEnemy_2::HitJudge(shared_ptr<GameObject> target)
 
 void SmallEnemy_2::Update(vector<shared_ptr<GameObject>>* gameObjects)
 {
-	if (enemy->Get_Transform().x < -100) hp = 0;//
+	if (enemy->Get_Transform().x < -100) destroy = true;
 	if (!explosion_animation.Explosion_Update()) destroy = true;
 	if (explosion_animation.Get_Exploding()) return;
 
-	if(!stop)enemy->MoveX(-1 * FrameRateManager::getInstance()->Get_Deltatime() * 50);
+	if(!stop)enemy->MoveX(-1 * FrameRateManager::getInstance()->Get_Deltatime() * 100);
 	if (actionTimer >= ActionTime) {
 		actionTimer = 0;
 		stop = false;
-		if (GetRand(499) == 0) {
+		if (GetRand(799) == 0) {
 			stop = true;
 			ActionTime = 1;
 			shared_ptr<Bullet> bullet = make_shared<Bullet>();

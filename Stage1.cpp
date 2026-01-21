@@ -2,8 +2,12 @@
 #include "FrameRateManager.h"
 #include "Player.h"
 #include "GameObject.h"
+#include "EnemySpawner.h"
 
 #include "Circle.h"
+
+#include "SmallEnemy_1.h"
+#include "SmallEnemy_2.h"
 
 //ëJà⁄êÊ
 
@@ -21,6 +25,14 @@ Stage1::Stage1()
 
 	shared_ptr<Player> player = make_shared<Player>();
 	gameObjects.push_back(player);
+
+	enemySpawner = new EnemySpawner();
+	for (int i = 0; i < 20; ++i) {
+		enemySpawner->Set_enemy(make_shared<SmallEnemy_1>(), (float)i);
+	}
+	for (int i = 0; i < 10; ++i) {
+		enemySpawner->Set_enemy(make_shared<SmallEnemy_2>(), (float)(i * 2 + 20));
+	}
 }
 
 Stage1::~Stage1()
@@ -28,6 +40,11 @@ Stage1::~Stage1()
 	DeleteGraph(handle_BackGround);
 
 	gameObjects.clear();
+
+	if (enemySpawner) {
+		delete enemySpawner;
+		enemySpawner = nullptr;
+	}
 }
 
 NextScene* Stage1::Update()
@@ -77,7 +94,7 @@ NextScene* Stage1::Update()
 	if (backGround_DrawPos_x <= STAGE_WIDTH * -1)backGround_DrawPos_x += STAGE_WIDTH;
 
 	//ìGê∂ê¨
-
+	enemySpawner->Update(&gameObjects);
 
 	return this;
 }

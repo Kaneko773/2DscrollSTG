@@ -5,6 +5,7 @@
 #include "DxLib.h"
 
 class GameObject;
+class EnemySpawner;
 
 #define STAGE_HEIGHT 480
 #define STAGE_WIDTH 640
@@ -29,4 +30,6 @@ private:
 	double backGround_DrawPos_x;
 
 	VECTOR_D playerHpUI[4] = { {20, 10}, {50, 10}, {40, 50}, {10, 50} };
+
+	EnemySpawner* enemySpawner;
 };

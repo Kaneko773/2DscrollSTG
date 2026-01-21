@@ -22,7 +22,9 @@ SmallEnemy_1::SmallEnemy_1()
 	body2->Set_local_vec({ -0.3, 0 }, { 0, 0, -90 }, { 1, 1 });
 
 	//ˆêŽž“I
-	enemy->Test_Set_tr_rt_sc({ 700, 240 }, { 0, 0, 0 }, { 20, 20 });
+	float posY = 480.0f / 11.0f;
+	posY *= (GetRand(9) + 1);
+	enemy->Test_Set_tr_rt_sc({ 700, posY }, { 0, 0, 0 }, { 20, 20 });
 
 	actionState = entry;
 	actionTimer = 0;

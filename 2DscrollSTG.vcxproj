@@ -139,6 +139,7 @@
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyDetail.cpp" />
+    <ClCompile Include="EnemySpawner.cpp" />
     <ClCompile Include="Explosion_Animation.cpp" />
     <ClCompile Include="FrameRateManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyDetail.h" />
+    <ClInclude Include="EnemySpawner.h" />
     <ClInclude Include="Explosion_Animation.h" />
     <ClInclude Include="FrameRateManager.h" />
     <ClInclude Include="GameObject.h" />
