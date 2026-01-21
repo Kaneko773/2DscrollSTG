@@ -17,6 +17,12 @@ Stage1::Stage1()
 	handle_BackGround = LoadGraph("‰æ‘œ/space.png");
 	backGround_DrawPos_x = 0;
 
+	//gameObjects‚ª‚O‚É‚È‚ç‚È‚¢‚æ‚¤‚É ‰‹}ˆ’u
+	shared_ptr<Circle> circle = make_shared<Circle>();
+	gameObjects.push_back(circle);
+	circle->Set_Transform_y(-1000);
+	circle->Set_hp(10000);
+
 	shared_ptr<Player> player = make_shared<Player>();
 	gameObjects.push_back(player);
 	shared_ptr<SmallEnemy_1> enemy = make_shared<SmallEnemy_1>();
@@ -75,6 +81,9 @@ NextScene* Stage1::Update()
 	//”wŒiˆÚ“®
 	backGround_DrawPos_x -= FrameRateManager::getInstance()->Get_Deltatime() * 50;
 	if (backGround_DrawPos_x <= STAGE_WIDTH * -1)backGround_DrawPos_x += STAGE_WIDTH;
+
+	//“G¶¬
+
 
 	return this;
 }

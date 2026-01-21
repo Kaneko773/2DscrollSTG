@@ -144,7 +144,6 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameRoot.cpp" />
     <ClCompile Include="InputManager.cpp" />
-    <ClCompile Include="Load.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerDetail.cpp" />
@@ -170,7 +169,6 @@
     <ClInclude Include="GameRoot.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="InputManager.h" />
-    <ClInclude Include="Load.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerDetail.h" />
     <ClInclude Include="Primitive.h" />

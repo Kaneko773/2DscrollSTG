@@ -3,7 +3,6 @@
 #include "FrameRateManager.h"
 
 #include "Title.h"//最初に呼ぶシーン
-#include "GameRoot.h"
 
 // プログラムは WinMain から始まります
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
@@ -19,8 +18,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	InputManager::create();
 	FrameRateManager::create();
 
-	//SceneBase* currentScene = new Title();
-	SceneBase* currentScene = new GameRoot();
+	SceneBase* currentScene = new Title();
 	currentScene->Start();
 
 	while (ProcessMessage() == 0)

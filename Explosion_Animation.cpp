@@ -58,7 +58,6 @@ bool Explosion_Animation::Explosion_Update()
 void Explosion_Animation::Show(VECTOR_D drawPos) const
 {
 	if (!exploding)return;
-	//DrawGraph((int)drawPos.x, (int)drawPos.y, explosion_handle[nowExplosionHandleNum], TRUE);
 	VECTOR_D upperLeftPos = { drawPos.x - size / 2, drawPos.y - size / 2 };
 	DrawExtendGraph((int)upperLeftPos.x, (int)upperLeftPos.y, (int)(upperLeftPos.x + size), (int)(upperLeftPos.y + size), explosion_handle[nowExplosionHandleNum], TRUE);
 }

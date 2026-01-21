@@ -4,12 +4,10 @@
 #include "GameScene.h"//階層判定に使う
 
 #include "StageSelect.h"//最初に読み込むシーン
-//デバッグ
-#include "Stage1.h"
 
 GameRoot::GameRoot()
 {
-	currentScene = new Stage1();
+	currentScene = new StageSelect();
 }
 GameRoot::~GameRoot()
 {
