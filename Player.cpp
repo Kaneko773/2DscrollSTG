@@ -52,6 +52,10 @@ void Player::Summarize(vector<shared_ptr<GameObject>>* targets)
 
 void Player::Update(vector<shared_ptr<GameObject>>* gameObjects)
 {
+	if (!explosion_animation.Explosion_Update()) destroy = true;
+	if (InputManager::getInstance()->input_keyDown[KEY_INPUT_RETURN]) Get_Damage();//デバッグ
+	if (explosion_animation.Get_Exploding()) return;
+
 	if (InputManager::getInstance()->input_key[KEY_INPUT_W]) {
 		player->MoveY(-1 * FrameRateManager::getInstance()->Get_Deltatime() * 100);
 	}
@@ -99,4 +103,5 @@ void Player::Show() const
 {
 	if (hide)return;//無敵時間中(点滅)
 	player->Show();
+	explosion_animation.Show(player->Get_Transform());
 }

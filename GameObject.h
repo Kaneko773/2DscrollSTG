@@ -33,6 +33,9 @@ public:
 	void MoveY(double num) {
 		transform.y += num;
 	}
+	void Set_Transform_y(double num) {
+		transform.y = num;
+	}
 
 	VECTOR_D Get_Transform() const {
 		return transform;
@@ -48,6 +51,14 @@ public:
 	}
 
 public:
+	bool Get_Destroy() const {
+		return destroy;
+	}
+
+protected:
+	bool destroy;
+
+public:
 	string Get_manager() {
 		return manager;
 	}
@@ -57,6 +68,7 @@ public:
 	virtual void Get_Damage() {
 		hp -= 1;
 		hit = true;
+		if(hp <= 0) destroy = true;
 	}
 	int Get_Hp() const {
 		return hp;

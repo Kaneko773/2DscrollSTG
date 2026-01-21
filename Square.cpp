@@ -18,7 +18,7 @@ bool Square::HitJudge(shared_ptr<GameObject> target)
 {
 	vector<shared_ptr<GameObject>> targets;
 	targets.push_back(target);
-	target->Summarize(&targets);//‚±‚±‚ª“ü‚Á‚Ä‚È‚¢
+	target->Summarize(&targets);
 
 	for (int i = 0; i < targets.size(); ++i) {
 		shared_ptr<Circle> c = dynamic_pointer_cast<Circle>(targets[i]);

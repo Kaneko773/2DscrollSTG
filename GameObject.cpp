@@ -20,6 +20,9 @@ GameObject::GameObject()
 
 	color = GetColor(255, 255, 255);
 	fillFlag = false;
+
+	hit = false;
+	destroy = false;
 }
 
 void GameObject::Set_child(shared_ptr<GameObject> _parent, shared_ptr<GameObject> _child)

@@ -1,17 +1,13 @@
 #pragma once
 #include "Enemy.h"
 
-enum Action {
-	entry,
-	stop,
-	rush,
-};
+//‚­‚Ë‚­‚Ë“®‚­“G
 
-class Test_smallEnemy final : public Enemy
+class SmallEnemy_2 final : public Enemy
 {
 public:
-	Test_smallEnemy();
-	virtual ~Test_smallEnemy() {};
+	SmallEnemy_2();
+	virtual ~SmallEnemy_2() {};
 
 	bool HitJudge(shared_ptr<GameObject> target) override;
 
@@ -19,7 +15,10 @@ public:
 	void Show() const override;
 
 private:
-	Action actionState;
+	double posY;
+	int temp;
+	bool stop;
+	double ActionTime;
 	double actionTimer;
 };
 

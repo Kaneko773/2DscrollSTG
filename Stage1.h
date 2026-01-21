@@ -29,4 +29,6 @@ private:
 
 	int handle_BackGround;
 	double backGround_DrawPos_x;
+
+	VECTOR_D playerHpUI[4] = { {20, 10}, {50, 10}, {40, 50}, {10, 50} };
 };

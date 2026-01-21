@@ -1,17 +1,13 @@
-#include "Test_smallEnemy.h"
+#include "SmallEnemy_1.h"
 
-#include "Square.h"
 #include "Triangle.h"
 
-#include "InputManager.h"
 #include "FrameRateManager.h"
 
-#include "Bullet.h"
-
-Test_smallEnemy::Test_smallEnemy()
+SmallEnemy_1::SmallEnemy_1()
 {
 	enemy = std::make_shared<EnemyDetail>();
-	manager = "Test_smallEnemy";
+	manager = "SmallEnemy_1";
 	enemy->Set_Color(GetColor(255, 0, 0));
 	enemy->Set_FillFlag(true);
 
@@ -32,26 +28,16 @@ Test_smallEnemy::Test_smallEnemy()
 	actionTimer = 0;
 }
 
-bool Test_smallEnemy::HitJudge(shared_ptr<GameObject> target)
+bool SmallEnemy_1::HitJudge(shared_ptr<GameObject> target)
 {
 	return enemy->HitJudge(target);
 }
 
-void Test_smallEnemy::Update(vector<shared_ptr<GameObject>>* gameObjects)
+void SmallEnemy_1::Update(vector<shared_ptr<GameObject>>* gameObjects)
 {
-	if (enemy->Get_Transform().x < -100) hp = 0;//
-
-#if 0
-	if (InputManager::getInstance()->input_keyDown[KEY_INPUT_RETURN]) {
-		shared_ptr<Bullet> bullet = make_shared<Bullet>();
-		bullet->Set_manager(this->Get_manager());
-		bullet->Set_dir(-1);
-		VECTOR_D pos = enemy->Get_Transform();
-		pos.x = enemy->Get_leftEnd();
-		bullet->Test_Set_tr_rt_sc(pos, { 0, 0, 0 }, { 10, 10 });
-		gameObjects->push_back(bullet);
-	}
-#endif
+	if (enemy->Get_Transform().x < -100) destroy = true;
+	if (!explosion_animation.Explosion_Update()) destroy = true;
+	if (explosion_animation.Get_Exploding()) return;
 
 	switch (actionState) {
 	case entry:
@@ -74,7 +60,8 @@ void Test_smallEnemy::Update(vector<shared_ptr<GameObject>>* gameObjects)
 	enemy->Update(gameObjects);
 }
 
-void Test_smallEnemy::Show() const
+void SmallEnemy_1::Show() const
 {
 	enemy->Show();
+	explosion_animation.Show(enemy->Get_Transform());
 }

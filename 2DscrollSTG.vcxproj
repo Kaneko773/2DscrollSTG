@@ -139,6 +139,7 @@
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyDetail.cpp" />
+    <ClCompile Include="Explosion_Animation.cpp" />
     <ClCompile Include="FrameRateManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameRoot.cpp" />
@@ -148,10 +149,11 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerDetail.cpp" />
     <ClCompile Include="Primitive.cpp" />
+    <ClCompile Include="SmallEnemy_1.cpp" />
+    <ClCompile Include="SmallEnemy_2.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="Stage1.cpp" />
     <ClCompile Include="StageSelect.cpp" />
-    <ClCompile Include="Test_smallEnemy.cpp" />
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="Transition.cpp" />
     <ClCompile Include="Triangle.cpp" />
@@ -162,6 +164,7 @@
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyDetail.h" />
+    <ClInclude Include="Explosion_Animation.h" />
     <ClInclude Include="FrameRateManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameRoot.h" />
@@ -172,10 +175,11 @@
     <ClInclude Include="PlayerDetail.h" />
     <ClInclude Include="Primitive.h" />
     <ClInclude Include="SceneBase.h" />
+    <ClInclude Include="SmallEnemy_1.h" />
+    <ClInclude Include="SmallEnemy_2.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="Stage1.h" />
     <ClInclude Include="StageSelect.h" />
-    <ClInclude Include="Test_smallEnemy.h" />
     <ClInclude Include="Title.h" />
     <ClInclude Include="Transition.h" />
     <ClInclude Include="Triangle.h" />

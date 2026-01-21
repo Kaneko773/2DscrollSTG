@@ -1,6 +1,8 @@
 #pragma once
 #include "PlayerDetail.h"
 
+#include "Explosion_Animation.h"
+
 //ラッパークラス
 class Player final : public GameObject
 {
@@ -26,9 +28,13 @@ public:
 	void Get_Damage() override{
 		hp -= 1;
 		hit = true;
-		invincible = true;
-		invincibleTimer = 0;
-		prevBlinkingTime = invincibleTimer;
+
+		if (hp <= 0)explosion_animation.Explosion_Start(100);
+		if (hp > 0) {
+			invincible = true;
+			invincibleTimer = 0;
+			prevBlinkingTime = invincibleTimer;
+		}
 	}
 
 private:
@@ -38,4 +44,6 @@ private:
 	bool invincible;
 	double prevBlinkingTime;
 	bool hide;
+
+	Explosion_Animation explosion_animation;
 };

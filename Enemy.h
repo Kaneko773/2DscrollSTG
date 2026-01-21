@@ -1,5 +1,6 @@
 #pragma once
 #include "EnemyDetail.h"
+#include "Explosion_Animation.h"
 
 //ラッパークラス
 class Enemy : public GameObject
@@ -18,8 +19,11 @@ public:
 	void Get_Damage() override {
 		hp -= 1;
 		hit = true;
+		if (hp <= 0)explosion_animation.Explosion_Start(50);
 	}
 
 protected:
 	std::shared_ptr<EnemyDetail> enemy;
+
+	Explosion_Animation explosion_animation;
 };
