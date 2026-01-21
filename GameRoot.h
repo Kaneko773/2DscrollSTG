@@ -16,8 +16,6 @@ public:
 
 	virtual void Transition_Start(SceneBase* prevScene) override;
 
-	virtual void AAA() override;//誰のトランジションか確認用
-
 private:
 	SceneBase* currentScene = nullptr;
 };

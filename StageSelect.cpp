@@ -26,7 +26,3 @@ void StageSelect::Draw()
 	DrawString(250, 240 - 32 + 20, "  B   : Title", GetColor(255, 255, 255));
 	DrawString(250, 240 - 32 + 40, "1キー : ステージ１ ", GetColor(255, 255, 255));
 }
-
-void StageSelect::AAA() {
-	printfDx("StageSelect");
-}

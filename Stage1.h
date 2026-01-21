@@ -1,15 +1,15 @@
 #pragma once
 #include "GameScene.h"
+#include <vector>
+#include <memory>//shared_ptr
+#include "DxLib.h"
 
-#include "Vector2.h"//
-
-#include "GameObject.h"
-
-#include "Triangle.h"
-#include "Square.h"
+class GameObject;
 
 #define STAGE_HEIGHT 480
 #define STAGE_WIDTH 640
+
+using namespace std;
 
 class Stage1 : public GameScene
 {
@@ -21,8 +21,6 @@ public:
 	virtual void End() override {};
 	virtual NextScene* Update() override;
 	virtual void Draw() override;
-
-	virtual void AAA() override;////誰のトランジションか確認用
 
 private:
 	vector<shared_ptr<GameObject>> gameObjects;//子

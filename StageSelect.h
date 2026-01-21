@@ -11,7 +11,5 @@ public:
 	virtual void End() override {};
 	virtual NextScene* Update() override;
 	virtual void Draw() override;
-
-	virtual void AAA() override;////誰のトランジションか確認用
 };
 

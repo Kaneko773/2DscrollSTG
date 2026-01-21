@@ -13,6 +13,4 @@ public:
 	virtual void End() = 0;
 	virtual NextScene* Update() = 0;
 	virtual void Draw() = 0;
-
-	virtual void AAA() {};//誰のトランジションか確認用
 };

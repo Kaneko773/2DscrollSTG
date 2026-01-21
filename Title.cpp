@@ -20,7 +20,3 @@ void Title::Draw()
 	DrawString(250, 240 - 32, "Title", GetColor(255, 255, 255));
 	DrawString(250, 240 - 32 + 20, "Enter : Load", GetColor(255, 255, 255));
 }
-
-void Title::AAA() {
-	printfDx("Title");
-}

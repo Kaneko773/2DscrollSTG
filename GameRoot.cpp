@@ -63,7 +63,3 @@ void GameRoot::Transition_Start(SceneBase* prevScene)
 	//GameRoot‚ªƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚µ‚È‚¢‚æ‚¤‚É‚·‚é
 	currentScene->Transition_Start(prevScene);
 }
-
-void GameRoot::AAA() {
-	printfDx("GameRoot");
-}

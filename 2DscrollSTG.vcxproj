@@ -156,7 +156,6 @@
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="Transition.cpp" />
     <ClCompile Include="Triangle.cpp" />
-    <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
@@ -181,7 +180,6 @@
     <ClInclude Include="Title.h" />
     <ClInclude Include="Transition.h" />
     <ClInclude Include="Triangle.h" />
-    <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

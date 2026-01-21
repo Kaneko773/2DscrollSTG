@@ -42,11 +42,6 @@ void Transition::Transition_Update()
 {
 	if (!inTransition) return;
 
-	//誰のトランジションか確認用--------------------------------
-	SceneBase* temp = dynamic_cast<SceneBase*>(this);
-	if (temp != nullptr)temp->AAA();
-	//----------------------------------------------------------
-
 	transitionTimer += FrameRateManager::getInstance()->Get_Deltatime();
 	if (transitionTimer >= TransitionTime / 48.0f * transitionCount) {
 		if (transitionCount >= 47) {

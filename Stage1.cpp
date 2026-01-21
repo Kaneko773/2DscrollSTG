@@ -1,13 +1,9 @@
 #include "Stage1.h"
-#include "DxLib.h"
-#include "InputManager.h"
 #include "FrameRateManager.h"
-
 #include "Player.h"
-#include "SmallEnemy_1.h"
-#include "SmallEnemy_2.h"
+#include "GameObject.h"
 
-#include "Bullet.h"
+#include "Circle.h"
 
 //ëJà⁄êÊ
 
@@ -25,8 +21,6 @@ Stage1::Stage1()
 
 	shared_ptr<Player> player = make_shared<Player>();
 	gameObjects.push_back(player);
-	shared_ptr<SmallEnemy_1> enemy = make_shared<SmallEnemy_1>();
-	gameObjects.push_back(enemy);
 }
 
 Stage1::~Stage1()
@@ -135,8 +129,4 @@ void Stage1::Draw()
 	for (int i = 0; i < gameObjects.size(); ++i) {
 		gameObjects[i]->Show();
 	}
-}
-
-void Stage1::AAA() {
-	printfDx("Stage1");
 }
