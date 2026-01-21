@@ -17,6 +17,8 @@ NextScene* Title::Update()
 }
 void Title::Draw()
 {
-	DrawString(250, 240 - 32, "Title", GetColor(255, 255, 255));
-	DrawString(250, 240 - 32 + 20, "Enter : Load", GetColor(255, 255, 255));
+	DrawString(10, 10, "Escapeでゲーム終了", GetColor(255, 255, 255));
+
+	DrawString(250, 240 - 32, "タイトル画面", GetColor(255, 255, 255));
+	DrawString(250, 240 - 32 + 20, "Enter : ステージ選択", GetColor(255, 255, 255));
 }

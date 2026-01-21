@@ -20,10 +20,16 @@ public:
 
 	void Set_enemy(shared_ptr<GameObject> _obj, float _time);
 
-	bool Update(vector<shared_ptr<GameObject>>* gameObjects);
+	void Update(vector<shared_ptr<GameObject>>* gameObjects);
+
+	bool Spawn_Finish() const {
+		return finish;
+	}
 
 private:
 	float timer;
 	vector<SpawnDetails> details;
+
+	bool finish;
 };
 

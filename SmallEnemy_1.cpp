@@ -11,7 +11,7 @@ SmallEnemy_1::SmallEnemy_1()
 	enemy->Set_Color(GetColor(255, 0, 0));
 	enemy->Set_FillFlag(true);
 
-	hp = 5;
+	hp = 3;
 
 	//}Œ`‚ğ‘g‚İ‡‚í‚¹‚Ä‘Ì‚ğì‚é
 	shared_ptr<Triangle> body1 = make_shared<Triangle>();

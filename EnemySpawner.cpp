@@ -4,6 +4,7 @@
 EnemySpawner::EnemySpawner()
 {
 	timer = 0;
+	finish = false;
 }
 
 EnemySpawner::~EnemySpawner()
@@ -17,13 +18,17 @@ void EnemySpawner::Set_enemy(shared_ptr<GameObject> _obj, float _time)
 	details.push_back(detail);
 }
 
-bool EnemySpawner::Update(vector<shared_ptr<GameObject>>* gameObjects)
+void EnemySpawner::Update(vector<shared_ptr<GameObject>>* gameObjects)
 {
+	if (finish) return;
+
 	for (int i = 0; i < details.size(); ++i) {
 		if (!details[i].spawn) {
 			if (timer >= details[i].time) {
 				gameObjects->push_back(details[i].obj);
 				details[i].spawn = true;
+				//ç≈å„Çê∂ê¨
+				if ((i + 1) == details.size()) finish = true;
 			}
 		}
 	}

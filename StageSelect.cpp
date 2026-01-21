@@ -22,7 +22,7 @@ NextScene* StageSelect::Update()
 }
 void StageSelect::Draw()
 {
-	DrawString(250, 240 - 32, "StageSelect", GetColor(255, 255, 255));
-	DrawString(250, 240 - 32 + 20, "  B   : Title", GetColor(255, 255, 255));
-	DrawString(250, 240 - 32 + 40, "1キー : ステージ１ ", GetColor(255, 255, 255));
+	DrawString(250, 240 - 32, "ステージ選択", GetColor(255, 255, 255));
+	DrawString(250, 240 - 32 + 20, "  B   : タイトルへ戻る", GetColor(255, 255, 255));
+	DrawString(250, 240 - 32 + 40, "1キー : ステージ１へ ", GetColor(255, 255, 255));
 }

@@ -96,6 +96,25 @@ NextScene* Stage1::Update()
 	//敵生成
 	enemySpawner->Update(&gameObjects);
 
+	//ゲームオーバー
+	for (int i = 0; i < gameObjects.size(); ++i) {
+		shared_ptr<Player> temp = dynamic_pointer_cast<Player>(gameObjects[i]);
+		if (temp != nullptr) {
+			break;//ゲーム終了
+		} 
+		if ((i + 1) == gameObjects.size())printfDx("ゲームオーバー");
+	}
+
+	//ゲームクリア
+	if (enemySpawner->Spawn_Finish()) {
+		for (int i = 0; i < gameObjects.size(); ++i) {
+			shared_ptr<Enemy> temp = dynamic_pointer_cast<Enemy>(gameObjects[i]);
+			if (temp != nullptr) continue;
+			//最後まで調べてEnemyが居なかったらゲームクリア
+			if ((i + 1) == gameObjects.size()) printfDx("ゲームクリア");
+		}
+	}
+
 	return this;
 }
 void Stage1::Draw()
