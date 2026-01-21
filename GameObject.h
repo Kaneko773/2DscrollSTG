@@ -21,7 +21,7 @@ public:
 
 	void Set_child(shared_ptr<GameObject> _parent, shared_ptr<GameObject> _child);
 
-	void Test_Set_tr_rt_sc(VECTOR_D tr, VECTOR_D rt, VECTOR_D sc) {//デバッグ
+	void Test_Set_tr_rt_sc(VECTOR_D tr, VECTOR_D rt, VECTOR_D sc) {//デバック用
 		transform = tr;
 		rotation = rt;
 		scale = sc;
