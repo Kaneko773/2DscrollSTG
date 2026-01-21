@@ -19,7 +19,7 @@ public:
 	void Get_Damage() override {
 		hp -= 1;
 		hit = true;
-		if (hp <= 0)explosion_animation.Explosion_Start(50);
+		if (hp <= 0)explosion_animation.Explosion_Start(30);
 	}
 
 protected:
